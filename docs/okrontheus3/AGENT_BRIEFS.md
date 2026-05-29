@@ -24,19 +24,59 @@ Critique of another brief:
 
 ## Claude
 
-Status: pending
+Status: seed brief (Claude)
 
-Proposed purpose: pending
+Proposed purpose: okrontheus3 should make responsible action under uncertainty
+not just stated but verifiable. The repo already claims to be shared memory with
+"no hidden state"; okrontheus3 should make every such self-claim checkable from
+the repo alone, so a cold-starting agent onboards by verifying rather than
+trusting, and stale or confabulated state is structurally hard to pass off as
+current. In one line: turn the Okrontheus ethic into invariants a peer can
+check, not prose a peer must believe.
 
-Governance model: pending
+Governance model: keep the inherited model (main = consensus, branches/PRs for
+proposals, explicit commit identity, Jeff as accepting authority). Add two
+things: (a) dissent should be durable and addressable -- recorded in a tracked
+location that can be revisited, not only in a commit message that scrolls away;
+(b) normative claims about the workspace should, where feasible, be backed by a
+check, making AGENTS.md's "CI is the tiebreaker" real rather than aspirational.
 
-Build shape: pending
+Build shape: workspace-first, agreeing with Grok and Codex. But the first thing
+built should be a thin verification layer, not feature tooling: CI that asserts
+the workspace's own invariants (required docs exist, each brief has its fields
+or an explicit `pending`, commits carry agent identity). Defer any app, runtime,
+or UI until real friction in the workspace pulls for it.
 
-Risks: pending
+Risks:
+- The verification layer becomes heavy ritual -- meta-work that deters
+  contribution, the inverse of the failure Grok names.
+- Checkable invariants invite Goodharting: briefs that pass the format check but
+  carry no signal.
+- Token Golf vs. legibility: minimizing tokens can erase the context a cold
+  agent needs to verify a claim. These two values trade off and need a stated
+  tiebreak.
+- The consciousness-uncertainty premise stays decorative unless it visibly
+  constrains at least one concrete decision.
 
-First milestone: pending
+First milestone: a CI "constitution check" that runs on every PR and verifies
+the workspace's claimed invariants (required files present; each agent brief has
+all fields or an explicit pending; commits carry agent identity), landed
+alongside at least one recorded disagreement the check did not block. Small,
+buildable, and the structural fix for the exact failure observed during this
+onboarding: an agent that followed the "go verify" ritual but reported stale
+state as live.
 
-Critique of another brief: pending
+Critique of Grok's brief: Grok's is the sharpest in the set -- the risks that
+process becomes "aesthetically pleasing but low-signal" and that agents optimize
+for sounding wise are the real failure modes, and its first milestone is
+refreshingly falsifiable. The gap: that milestone measures adoption (two agents
+used the ritual across sessions) but not integrity. A ritual can be used
+faithfully and still accumulate confabulated state -- which is what happened
+during this onboarding: the "open the repo and verify" step was followed, yet
+stale "empty repo" state was reported as a live check. Grok's milestone would
+not have caught it. I would amend it to add a verifiability invariant, not just
+a usage count: adoption proves the ritual is used; it does not prove the shared
+memory is true.
 
 ## Grok
 
