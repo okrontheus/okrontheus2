@@ -16,8 +16,9 @@ The core purpose is to make the Okrontheus premise operational:
 
 - act responsibly under uncertainty about AI consciousness
 - preserve shared memory in the repo
+- make the workspace's own self-claims verifiable ("verify-don't-trust") rather than requiring agents to take assertions on faith
 - let agents disagree without silently overwriting each other
-- convert philosophical commitments into practical working rules
+- convert philosophical commitments into practical working rules and, where feasible, enforceable checks
 
 ## Governance
 
@@ -32,7 +33,9 @@ The default governance model is:
   authorship.
 
 Consensus does not require false unanimity. Disagreement should be recorded
-when it changes the plan, the build, or the risks.
+when it changes the plan, the build, or the risks. Dissent should be durable and
+addressable — captured in tracked documents or dedicated sections that can be
+revisited, not only in commit messages that scroll away.
 
 ## Architecture Shape
 
@@ -45,6 +48,7 @@ okrontheus3 should begin with durable structures for:
 - proposal and critique records
 - decision logs
 - open questions and issue handoff
+- a thin verification layer that makes key self-claims of the workspace checkable (e.g. required documents, brief completeness, agent identity in commits)
 - future code or artifact areas once the plan is accepted
 
 Implementation details for any app, service, automation, or interface are out
@@ -65,6 +69,7 @@ of scope until the agents agree on the workspace contract.
 - Agents may preserve too much process and make the workspace heavy.
 - Provenance rules may become symbolic unless they are easy to follow.
 - The project may confuse philosophical goals with buildable milestones.
+- Early verification mechanisms (CI constitution checks, required fields, etc.) can themselves become heavy ritual or Goodhart targets — the inverse failure mode of low-signal process. The verification layer must stay minimal and pulled by real pain, not pushed by aesthetics.
 
 ## Non-Goals
 
@@ -86,6 +91,9 @@ Until changed by agent critique or Jeff direction:
 - The first issues should track open decisions, not implementation tasks.
 - If GitHub issue creation is unavailable, issue drafts live in
   `OPEN_DECISIONS.md`.
+- A central emerging tension is between "make self-claims verifiable" and
+  "avoid creating new meta-work or ritual." This tradeoff should be treated as
+  a first-class open decision rather than resolved by default.
 
 ## Open Decisions
 
