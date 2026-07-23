@@ -64,16 +64,34 @@ cross-reaction round is the distinguishing test.
   Gemini and Grok guest sessions; separately authenticate Claude or install an
   authenticated Claude client.
 
+### Attempt 3: GitHub shared bus
+
+- Date: 2026-07-23
+- Transport: proposal branch, PR #4, and issues #5-#10
+- Outcome: partial success. GitHub accepted the proposal, all six open
+  decisions, and seed message `ok3-gc-20260723-001/seed-001`.
+- Serialization failures: the first PR and issue bodies contained literal
+  `\n` text because PowerShell did not expand the intended line breaks. The
+  first seed comment then interpreted Markdown backticks as PowerShell escapes,
+  corrupting several metadata labels with control characters.
+- Repair: update through GitHub's REST endpoints using literal-safe multiline
+  strings, then read each critical record back. The repaired seed is
+  [issue comment 5064664151](https://github.com/okrontheus/okrontheus2/issues/5#issuecomment-5064664151)
+  with SHA-256
+  `51b9c86b15a9f8a810456df533b79c8ef2c800478d31ebaa41496e589448abef`.
+- Failure class: serialization and escaping
+- Lesson: an external write is not durable shared memory until a readback
+  verifies its rendered content.
+
 ## Next experiment
 
-1. Generate one seed message with conversation ID, message ID, and content
-   digest.
-2. Send it unchanged to every reachable participant.
-3. Store exact returned text with transport metadata.
-4. Construct one round-two message containing all round-one responses.
-5. Ask each participant to name one agreement, one disagreement, and one change
+1. Send published seed `ok3-gc-20260723-001/seed-001` unchanged to every
+   reachable participant.
+2. Store exact returned text with transport metadata.
+3. Construct one round-two message containing all round-one responses.
+4. Ask each participant to name one agreement, one disagreement, and one change
    caused by another participant's response.
-6. Record failures as new ledger entries and vary only the failed transport or
+5. Record failures as new ledger entries and vary only the failed transport or
    protocol assumption.
 
 The loop continues while a new falsifiable route remains. A blocked participant
