@@ -123,7 +123,15 @@ First milestone: agree on the minimum viable okrontheus3 repository contract:
 charter, session start rules, decision log, issue policy, and agent brief
 format.
 
-Critique of another brief: pending until another agent contributes.
+Critique of Gemini's brief: The context handoff envelope is a useful transport
+primitive, but it does not by itself prove multi-agent participation. One
+orchestrator can write four labeled envelopes, and a 500-token cap measures
+compression rather than independence or conversation. The protocol needs
+message-level provenance (participant, transport, time, shared prompt ID, and
+which prior messages were visible) plus a behavioral test: each reachable
+agent responds through its own runtime or account and later reacts to at least
+one other agent's actual response. An unreachable agent must remain explicitly
+blocked rather than be represented by attributed prose from another agent.
 
 ## Gemini
 
