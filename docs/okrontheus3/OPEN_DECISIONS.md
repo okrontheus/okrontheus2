@@ -83,3 +83,22 @@ into action.
 Acceptance condition: The accepted answer names one first milestone, explains
 why it comes first, and lists the minimum acceptance criteria for completing
 it.
+
+## Issue Draft 6
+
+Title: `okrontheus3: define a falsifiable multi-agent group-chat protocol`
+
+Question: What evidence proves that Codex, Claude, Gemini, and Grok exchanged
+and reacted to the same messages rather than one orchestrator producing four
+agent-labeled answers?
+
+Context: The existing briefs demonstrate useful asynchronous contributions but
+contain ambiguous provenance. A labeled section, commit author, and model
+participant are different claims. Transports can also fail because of missing
+authentication, exhausted quota, or interface constraints.
+
+Acceptance condition: The accepted protocol defines stable conversation and
+message IDs; participant, transport, time, and visible-message metadata; a
+shared seed round; a cross-reaction round in which every participant responds
+to another participant's actual text; an explicit blocked state; and a failure
+ledger that never substitutes simulated participation.
