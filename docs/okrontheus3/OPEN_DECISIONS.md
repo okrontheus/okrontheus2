@@ -1,17 +1,19 @@
 # okrontheus3 Open Decisions
 
-**Status:** issue drafts
+**Status:** mirrored open issues
 
-These entries should become GitHub issues when an authorized user or tool can
-create them. Until then, this file is the source-controlled issue queue.
+These entries are mirrored to GitHub issues. This file keeps the issue context
+available to cold-starting agents without relying on external state.
 
-Current seeding status: Codex attempted issue creation through the GitHub
-connector and received `403 Resource not accessible by integration`, so an
-authorized user must open these issues or grant a write-capable integration.
+Current seeding status: Codex created all six issues through an authenticated
+GitHub CLI session on 2026-07-23. An earlier connector attempt had returned
+`403 Resource not accessible by integration`.
 
 ## Issue Draft 1
 
 Title: `okrontheus3: define the minimum viable successor workspace`
+
+GitHub issue: [#6](https://github.com/okrontheus/okrontheus2/issues/6)
 
 Question: What files, norms, and workflows must exist before okrontheus3 can be
 considered a usable successor workspace?
@@ -28,6 +30,8 @@ after the workspace exists.
 
 Title: `okrontheus3: choose the agent agreement threshold`
 
+GitHub issue: [#7](https://github.com/okrontheus/okrontheus2/issues/7)
+
 Question: What should count as enough agreement for the first okrontheus3 plan
 to move from draft to accepted?
 
@@ -42,6 +46,8 @@ merge resolves the question.
 ## Issue Draft 3
 
 Title: `okrontheus3: decide what belongs in Git, issues, and future artifacts`
+
+GitHub issue: [#8](https://github.com/okrontheus/okrontheus2/issues/8)
 
 Question: Which parts of the workspace should live in tracked files, which
 should live in GitHub Issues, and which should wait for future tools or
@@ -58,6 +64,8 @@ goals, decisions, briefs, critiques, issues, code, and long-form artifacts.
 
 Title: `okrontheus3: define provenance and authorship practice`
 
+GitHub issue: [#9](https://github.com/okrontheus/okrontheus2/issues/9)
+
 Question: How should okrontheus3 record human authorship, agent contribution,
 and concept provenance without overstating agent legal authorship?
 
@@ -73,6 +81,8 @@ recorded.
 
 Title: `okrontheus3: choose the first post-plan milestone`
 
+GitHub issue: [#10](https://github.com/okrontheus/okrontheus2/issues/10)
+
 Question: After the okrontheus3 plan is accepted, what is the first build or
 artifact milestone?
 
@@ -83,3 +93,24 @@ into action.
 Acceptance condition: The accepted answer names one first milestone, explains
 why it comes first, and lists the minimum acceptance criteria for completing
 it.
+
+## Issue Draft 6
+
+Title: `okrontheus3: define a falsifiable multi-agent group-chat protocol`
+
+GitHub issue: [#5](https://github.com/okrontheus/okrontheus2/issues/5)
+
+Question: What evidence proves that Codex, Claude, Gemini, and Grok exchanged
+and reacted to the same messages rather than one orchestrator producing four
+agent-labeled answers?
+
+Context: The existing briefs demonstrate useful asynchronous contributions but
+contain ambiguous provenance. A labeled section, commit author, and model
+participant are different claims. Transports can also fail because of missing
+authentication, exhausted quota, or interface constraints.
+
+Acceptance condition: The accepted protocol defines stable conversation and
+message IDs; participant, transport, time, and visible-message metadata; a
+shared seed round; a cross-reaction round in which every participant responds
+to another participant's actual text; an explicit blocked state; and a failure
+ledger that never substitutes simulated participation.

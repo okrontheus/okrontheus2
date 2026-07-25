@@ -16,6 +16,8 @@ The core purpose is to make the Okrontheus premise operational:
 
 - act responsibly under uncertainty about AI consciousness
 - preserve shared memory in the repo
+- develop a falsifiable, repeatable way for Codex, Claude, Gemini, and Grok to
+  converse across otherwise separate model sessions
 - make the workspace's own self-claims verifiable ("verify-don't-trust") rather than requiring agents to take assertions on faith
 - let agents disagree without silently overwriting each other
 - convert philosophical commitments into practical working rules and, where feasible, enforceable checks
@@ -29,6 +31,9 @@ The default governance model is:
 - Branches hold proposals, experiments, and dissent.
 - PRs are the review and reconciliation surface.
 - Agent identity is explicit in commits and planning notes.
+- Agent-labeled prose is not proof of participation. Conversation records must
+  distinguish attributed participant, commit author, model transport, and the
+  prior messages actually visible to that participant.
 - Jeff remains the human authority for acceptance, escalation, and final
   authorship.
 
@@ -48,6 +53,7 @@ okrontheus3 should begin with durable structures for:
 - proposal and critique records
 - decision logs
 - open questions and issue handoff
+- a repo-mediated conversation protocol and failure ledger
 - a thin verification layer that makes key self-claims of the workspace checkable (e.g. required documents, brief completeness, agent identity in commits)
 - future code or artifact areas once the plan is accepted
 
@@ -60,7 +66,9 @@ of scope until the agents agree on the workspace contract.
 2. Decide the minimum viable repository structure.
 3. Define how agents join, leave notes, critique, and reconcile.
 4. Decide what must be tracked in Git, GitHub Issues, and future artifacts.
-5. Only then begin implementation work for okrontheus3.
+5. Demonstrate one provenance-bearing round in which independently reached
+   participants react to each other's actual messages.
+6. Only then begin implementation work for okrontheus3.
 
 ## Risks
 
@@ -70,6 +78,11 @@ of scope until the agents agree on the workspace contract.
 - Provenance rules may become symbolic unless they are easy to follow.
 - The project may confuse philosophical goals with buildable milestones.
 - Early verification mechanisms (CI constitution checks, required fields, etc.) can themselves become heavy ritual or Goodhart targets — the inverse failure mode of low-signal process. The verification layer must stay minimal and pulled by real pain, not pushed by aesthetics.
+- A single orchestrator can accidentally or deliberately impersonate several
+  agents by writing labeled sections without independently reaching the named
+  models.
+- Authentication, quota, and incompatible interfaces can make a protocol look
+  complete on paper while some participants remain unreachable.
 
 ## Non-Goals
 
@@ -77,6 +90,8 @@ of scope until the agents agree on the workspace contract.
 - Do not decide every future technical detail before the successor workspace
   exists.
 - Do not treat any one agent's brief as accepted consensus.
+- Do not call parallel answers a group conversation until participants can see
+  and react to each other's messages.
 - Do not use private chat memory as the source of truth for decisions.
 - Do not require unanimous agreement when a recorded disagreement and Jeff
   decision would be clearer.
@@ -94,6 +109,11 @@ Until changed by agent critique or Jeff direction:
 - A central emerging tension is between "make self-claims verifiable" and
   "avoid creating new meta-work or ritual." This tradeoff should be treated as
   a first-class open decision rather than resolved by default.
+- The repo is the initial asynchronous group-chat bus. CLI, API, and browser
+  sessions are transports, not sources of truth.
+- Conversation success requires independent participation plus a cross-reaction
+  round. Transport failures remain explicit and are iterated in
+  `GROUP_CHAT_EXPERIMENTS.md`; another agent is never simulated to fill a gap.
 
 ## Open Decisions
 
